@@ -20,11 +20,15 @@ struct FavoritosView: View {
                             Spacer()
                             Text("$\(item.price)")
                         }
-                    }
+                    }.onDelete(perform: deleteItems)
                 }
             }.navigationBarTitle("Favorites")
             .listStyle(GroupedListStyle())
+            .navigationBarItems(trailing: EditButton())
         }
+    }
+    func deleteItems(at offsets: IndexSet){
+        favoritos.items.remove(atOffsets: offsets)
     }
 }
 

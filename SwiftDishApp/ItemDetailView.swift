@@ -12,6 +12,9 @@ struct ItemDetailView: View {
     var item: MenuItem
     @EnvironmentObject var order : Order
     @EnvironmentObject var favoritos : Favoritos
+    var itemInd: Int {
+        favoritos.items.firstIndex(where: { $0.id == item.id }) ?? -1
+    }
     var body: some View {
         VStack{
             ZStack(alignment: .bottomTrailing){
@@ -30,8 +33,20 @@ struct ItemDetailView: View {
                 self.order.add(item: self.item)
             }.font(.headline)
             Spacer()
-        }.navigationBarItems(trailing: Button("Fav"){
-            self.favoritos.add(item: self.item)
+        }.navigationBarItems(trailing: Button(action: {
+            if(self.itemInd < 0){
+                self.favoritos.add(item: self.item)
+            }
+            else{
+                self.favoritos.remove(item: self.item)
+            }
+        }) {
+            if(self.itemInd < 0){
+                Image(systemName: "heart").foregroundColor(.gray)
+            }
+            else {
+                Image(systemName: "heart.fill").foregroundColor(.yellow)
+            }
         })
         .navigationBarTitle(Text(item.name), displayMode: .inline)
     }

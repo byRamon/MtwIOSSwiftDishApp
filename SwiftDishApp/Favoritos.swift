@@ -18,7 +18,6 @@ class Favoritos : ObservableObject{
             return 0
         }
     }
-
     func add(item: MenuItem) {
         items.append(item)
     }

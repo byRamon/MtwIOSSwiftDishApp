@@ -18,9 +18,6 @@ class Order : ObservableObject{
             return 0
         }
     }
-    var favoriteMark: Bool{
-        
-    }
 
     func add(item: MenuItem) {
         items.append(item)
