@@ -15,6 +15,9 @@ struct AppView: View {
             ContentView().tabItem{
                 Image(systemName: "list.dash")
             }
+            FavoritosView().tabItem{
+                Image(systemName: "heart.fill")
+            }
             //tab2
             OrderView().tabItem{
                 Image(systemName: "square.and.pencil")

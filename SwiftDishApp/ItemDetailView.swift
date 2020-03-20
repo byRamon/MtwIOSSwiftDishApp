@@ -11,6 +11,7 @@ import SwiftUI
 struct ItemDetailView: View {
     var item: MenuItem
     @EnvironmentObject var order : Order
+    @EnvironmentObject var favoritos : Favoritos
     var body: some View {
         VStack{
             ZStack(alignment: .bottomTrailing){
@@ -29,7 +30,10 @@ struct ItemDetailView: View {
                 self.order.add(item: self.item)
             }.font(.headline)
             Spacer()
-        }.navigationBarTitle(Text(item.name), displayMode: .inline)
+        }.navigationBarItems(trailing: Button("Fav"){
+            self.favoritos.add(item: self.item)
+        })
+        .navigationBarTitle(Text(item.name), displayMode: .inline)
     }
 }
 

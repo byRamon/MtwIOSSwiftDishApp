@@ -51,12 +51,12 @@ struct CheckOutView: View {
                     self.showingAlert.toggle()
                 }
             }
-            }.navigationBarTitle(Text("Payment"), displayMode: .inline)
+        }.navigationBarTitle(Text("Payment"), displayMode: .inline)
             .alert(isPresented: $showingAlert){
                 Alert(title: Text("Order confirmed"), message: Text("Your Total was $\(totalPrice, specifier: "%.2f") - thank you!"), dismissButton: .default(Text("Ok")))
-            }
         }
     }
+}
 
 
 struct CheckOutView_Previews: PreviewProvider {

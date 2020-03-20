@@ -1,14 +1,14 @@
 //
-//  Order.swift
-//  iDine
+//  Favoritos.swift
+//  SwiftDishApp
 //
-//  Created by Paul Hudson on 27/06/2019.
-//  Copyright © 2019 Hacking with Swift. All rights reserved.
+//  Created by ByRamon on 20/03/20.
+//  Copyright © 2020 ByRamon. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
 
-class Order : ObservableObject{
+class Favoritos : ObservableObject{
     //var items = [MenuItem]()
     @Published var items = [MenuItem]()
     var total: Int {
@@ -17,9 +17,6 @@ class Order : ObservableObject{
         } else {
             return 0
         }
-    }
-    var favoriteMark: Bool{
-        
     }
 
     func add(item: MenuItem) {
